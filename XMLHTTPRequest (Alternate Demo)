@@ -24,7 +24,6 @@ myRequest.open("GET","https://swapi.dev/api/planets/")
 
 myRequest.send();
 
-// This will run first
 console.log("*** Sending Request *** ")
 
 
