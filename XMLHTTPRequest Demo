@@ -1,7 +1,9 @@
+// Create a new request object
 const myRequest=new XMLHttpRequest()
 
 
 
+// Run this if request successfully works
 myRequest.addEventListener('load',function(){
   const data=JSON.parse(this.responseText)
   for(let planet of data.results){
@@ -10,11 +12,16 @@ myRequest.addEventListener('load',function(){
   console.log(data)
 })
 
+// Run this if request is failed
 myRequest.addEventListener('error',function(){
   console.log("Request Failed")
 })
 
 
+// requestObject.open(method,url)
 myRequest.open("GET","https://swapi.dev/api/planets/")
+
 myRequest.send();
+
+// This will run first
 console.log("*** Sending Request *** ")
