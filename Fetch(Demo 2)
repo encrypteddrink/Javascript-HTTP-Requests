@@ -1,0 +1,24 @@
+/* 
+1- Newer way of making requests in JS
+2- Support promises
+3- Not supported in Internet Explorer
+4- Fetch doesnt return a catch promised on 404
+5- The fetch only proceeds to a catch() block incase of network failure
+*/
+
+fetch("https://swapi.dev/api/plaasasnets/")
+.then((response)=>{
+  if(response.ok){ //check if the response status code is 200
+    response.json().then((data)=>{
+      for(let planet of data.results){
+        console.log(planet.name)
+      }
+    })
+  }else{
+    // We can also throw an error that will be caught by the catch() block
+    throw new Error(`Status code error: ${response.status}`) 
+  }
+}).catch((err)=>{
+  console.log("Somwthing went reong")
+  console.log(err)
+})
