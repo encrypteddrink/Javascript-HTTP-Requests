@@ -1,0 +1,23 @@
+// ************** Axios Chaining  ********************
+
+
+// No destructuring used in this example.
+// We are chaining the axios request but infact we can also return a promise
+
+
+
+
+axios.get('https://swapi.dev/api/planets/')
+.then((res)=>{
+	 console.log(res.data)
+	for(let planet of res.data.results){
+		console.log(planet.name)
+	}
+	axios.get(res.data.next).then((res)=>{
+		console.log(res.data)
+		for(let planet of res.data.results){
+			console.log(planet.name)
+		}
+	})
+})
+
