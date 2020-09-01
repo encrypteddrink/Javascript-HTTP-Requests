@@ -1,0 +1,22 @@
+// ************** Axios Chaining  ********************
+
+//Destructuring used in this example at line:8 and line:13
+
+// What are we destructuring?
+// We are using the "Destructuring Parameter" approach here and destructuring the whole . . .
+// res object
+
+axios.get('https://swapi.dev/api/planets/')
+.then(({data})=>{                  //  <--  response destructured here      
+	 console.log(data)
+	for(let planet of data.results){
+		console.log(planet.name)
+	}
+	axios.get(data.next).then(({data})=>{    //  <--  response destructured here      
+		console.log(data)
+		for(let planet of data.results){
+			console.log(planet.name)
+		}
+	})
+})
+
