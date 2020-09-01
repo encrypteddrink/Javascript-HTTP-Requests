@@ -1,0 +1,18 @@
+/* 
+	1- Axios automatically parse the data for us
+	2- Unlike, Fetch which resolves a promise() unless its a network failure
+	3- Axios knows that if the response status code is other than 200, it has to 
+		go invoke the catch() block
+*/
+
+
+
+
+axios.get('https://swapi.dev/api/planetqass/')
+.then((res)=>{
+	console.log(res)
+})
+.catch((err)=>{
+	console.log("**** ERROR ****")
+	console.log(err)
+})
