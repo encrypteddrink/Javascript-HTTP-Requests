@@ -1,0 +1,21 @@
+// ************** Axios Chaining  ********************
+
+// Returning the axios request to the next .then() block
+
+
+axios.get('https://swapi.dev/api/planets/')
+.then(({data})=>{                  //  <--  response destructured here      
+	 console.log(data)
+	for(let planet of data.results){
+		console.log(planet.name)
+	}
+	
+	return axios.get(data.next)     //  <--  returning the promise to the next .then() 
+})
+.then(({data})=>{                  //  <--  response destructured here      
+	console.log(data)
+   for(let planet of data.results){
+	   console.log(planet.name)
+   }
+})
+
